@@ -440,8 +440,8 @@
   /* Screenshot */
   .gallery-screen {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  height: auto;
+  aspect-ratio: 16 / 9;   /* matches landscape screenshots perfectly */
+  height: auto;            /* remove the fixed 170px */
   overflow: hidden;
   display: block;
   position: relative;
@@ -505,11 +505,7 @@
   }
   @media(max-width: 580px) {
     .work-gallery { grid-template-columns: 1fr; }
-    .gallery-screen { aspect-ratio: 16 / 9; background: var(--card-bg); }
-    .gallery-screen img { object-fit: contain; object-position: top center; }
   }
-
-  .gallery-item.touch-active .gallery-overlay { opacity: 1; }
 
   /* ——— CONTACT ——— */
   #contact { background: var(--contact-bg); color: var(--contact-text); transition: background 0.3s ease; }
@@ -962,31 +958,6 @@
     font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase;
     color: var(--maroon); font-family: 'Space Mono', monospace;
   }
-  .lightbox-controls {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  .zoom-controls {
-    display: flex;
-    gap: 8px;
-  }
-  .zoom-controls button {
-    background: rgba(160,32,240,0.1);
-    border: 1px solid var(--border);
-    color: var(--maroon);
-    width: 34px; height: 34px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  .zoom-controls button i { width: 16px; height: 16px; }
-  .zoom-controls button:hover {
-    background: var(--maroon);
-    color: #fff;
-    transform: scale(1.1);
-  }
   .lightbox-nav { display: flex; gap: 8px; }
   .lightbox-nav button {
     background: none; border: 1px solid var(--gray);
@@ -999,12 +970,6 @@
     .lightbox-nav button {
       padding: 10px 18px; /* Larger hit area */
       font-size: 0.85rem;
-    }
-    .lightbox-controls {
-      gap: 12px;
-    }
-    .zoom-controls button {
-      width: 40px; height: 40px; /* Larger touch targets */
     }
     .lightbox-footer {
       padding: 15px 18px;
