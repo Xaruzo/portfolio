@@ -4,12 +4,12 @@ export const portfolioData = {
     nickname: "Xaruzo",
     role: "Web Developer & BSCS Student",
     location: "Tandag City, Philippines",
-    school: "NEMSU Tandag",
+    school: "North Eastern Mindanao State University",
     year: "2nd Year",
-    description: "A Web Developer specialized in both front-end and back-end development, based in Tandag City, Philippines. 2nd Year — NEMSU.",
+    description: "A Web Developer specialized in both front-end and back-end development, based in Tandag City, Philippines. 2nd Year — North Eastern Mindanao State University.",
     heroImage: "images/hero.png",
     about: [
-      "I'm a 2nd-year Bachelor of Science in Computer Science student at NEMSU Tandag, Caraga. My identity as a developer centers on one core belief: every complex system has an elegant, logical solution.",
+      "I'm a 2nd-year Bachelor of Science in Computer Science student at North Eastern Mindanao State University, Tandag Campus. My identity as a developer centers on one core belief: every complex system has an elegant, logical solution.",
       "Specializing in JavaFX for desktop application architecture and Python Flet for reactive cross-platform UI, I bridge the gap between abstract logic and tangible, working systems.",
       "From manipulating pointers in C++ to engineering full-featured desktop portals, I approach each project as an opportunity to convert chaos into clean, maintainable architecture."
     ],
