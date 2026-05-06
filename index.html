@@ -2,35 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xaruzo | Web & System Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Xaruzo — Reignston John B. Manzano</title>
     
     <!-- Primary Meta Tags -->
-    <meta name="title" content="Xaruzo | Web & System Developer">
-    <meta name="description" content="Portfolio of Xaruzo, a specialized Web and System Developer based in Tandag City. 2nd Year Computer Science student at North Eastern Mindanao State University.">
-    <meta name="author" content="Xaruzo">
+    <meta name="title" content="Xaruzo — Reignston John B. Manzano">
+    <meta name="description" content="Portfolio of Reignston John B. Manzano (Xaruzo), a Web Developer and BSCS Student specializing in JavaFX and Python Flet.">
+    <meta name="keywords" content="Reignston Manzano, Xaruzo, Web Developer, BSCS, NEMSU, JavaFX, Python Flet, Portfolio">
+    <meta name="author" content="Reignston John B. Manzano">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://xaruzo-portfolio.onrender.com/">
-    <meta property="og:title" content="Xaruzo | Web & System Developer">
-    <meta property="og:description" content="Professional portfolio showcasing JavaFX architecture, Python Flet reactive systems, and modern web development.">
-    <meta property="og:image" content="https://xaruzo-portfolio.onrender.com/images/logo.png">
+    <meta property="og:url" content="https://xaruzo.github.io/">
+    <meta property="og:title" content="Xaruzo — Reignston John B. Manzano">
+    <meta property="og:description" content="Portfolio of Reignston John B. Manzano (Xaruzo), a Web Developer and BSCS Student.">
+    <meta property="og:image" content="images/hero.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://xaruzo-portfolio.onrender.com/">
-    <meta property="twitter:title" content="Xaruzo | Web & System Developer">
-    <meta property="twitter:description" content="Professional portfolio showcasing JavaFX architecture, Python Flet reactive systems, and modern web development.">
-    <meta property="twitter:image" content="https://xaruzo-portfolio.onrender.com/images/logo.png">
+    <meta property="twitter:url" content="https://xaruzo.github.io/">
+    <meta property="twitter:title" content="Xaruzo — Reignston John B. Manzano">
+    <meta property="twitter:description" content="Portfolio of Reignston John B. Manzano (Xaruzo), a Web Developer and BSCS Student.">
+    <meta property="twitter:image" content="images/hero.png">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="src/assets/css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.525.0/dist/umd/lucide.min.js" defer></script>
 </head>
 <body>
     <div id="intro-overlay">
@@ -48,7 +46,7 @@
         <div class="intro-content">
             <div class="intro-brand">
                 <div id="impact-wrap">
-                    <span class="glitch" id="intro-name" data-text=""></span>
+                    <span class="glitch" id="intro-name" data-text="Xaruzo"></span>
                     <div id="sparks-container"></div>
                 </div>
             </div>
@@ -63,5 +61,23 @@
     </div>
     <div id="app"></div>
     <script type="module" src="src/assets/js/app.js"></script>
+    <noscript>
+        <style>
+            #intro-overlay { display: none !important; }
+            .noscript-msg {
+                font-family: 'Space Mono', monospace;
+                display: flex; flex-direction: column;
+                align-items: center; justify-content: center;
+                height: 100vh; text-align: center;
+                padding: 2rem; color: #1A1614;
+            }
+            .noscript-msg h1 { font-size: 1.5rem; margin-bottom: 1rem; }
+            .noscript-msg p { font-size: 0.85rem; color: #6A6470; max-width: 400px; line-height: 1.8; }
+        </style>
+        <div class="noscript-msg">
+            <h1>JavaScript is disabled</h1>
+            <p>This portfolio requires JavaScript to run. Please enable it in your browser settings and reload the page.</p>
+        </div>
+    </noscript>
 </body>
 </html>

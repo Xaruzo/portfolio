@@ -28,35 +28,35 @@ export const portfolioData = {
   skills: [
     { 
       name: "JavaFX", 
-      icon: "devicon-java-plain colored", 
+      icon: "coffee", 
       description: "Desktop application development with secure login flows, data persistence layers, and FXML scene architecture.", 
       level: 88,
       tags: ["FXML", "SceneBuilder", "Event Handling", "UI Threading"]
     },
     { 
       name: "Python Flet", 
-      icon: "devicon-python-plain colored", 
+      icon: "monitor", 
       description: "Cross-platform reactive UI development optimized for speed and intuitive data-flow patterns.", 
       level: 82,
       tags: ["Reactive UI", "State Management", "Async/Await", "Custom Styling"]
     },
     { 
       name: "C++ Fundamentals", 
-      icon: "devicon-cplusplus-plain colored", 
+      icon: "cpu", 
       description: "Memory management, pointer manipulation, data structures, and algorithmic problem solving.", 
       level: 74,
       tags: ["Pointers", "OOP", "STL", "Memory Management"]
     },
     { 
       name: "HTML & CSS", 
-      icon: "devicon-html5-plain colored", 
+      icon: "layout", 
       description: "From simple semantic markup to complex multi-activity layouts — including tables, nested structures, and custom styling.", 
       level: 90,
       tags: ["Flexbox", "Grid", "Responsive", "Semantic HTML"]
     },
     { 
       name: "SQLite / Databases", 
-      icon: "devicon-sqlite-plain colored", 
+      icon: "database", 
       description: "Relational data modeling and persistent storage integration in desktop applications.", 
       level: 78,
       tags: ["SQL Queries", "Relational Mapping", "CRUD", "DB Schema"]
@@ -71,57 +71,50 @@ export const portfolioData = {
   ],
   projects: [
     {
-      id: 0,
       title: "Estudyante — Personal Poem",
-      url: "xaruzo.github.io/activity01",
+      url: "Activities/Activity_1.html",
       tags: ["HTML", "Typography"],
       num: "Activity 01",
       image: "images/1.png"
     },
     {
-      id: 1,
       title: "Favorite Hobby Page",
-      url: "xaruzo.github.io/activity02",
+      url: "Activities/Activity_2.html",
       tags: ["HTML", "CSS Styling"],
       num: "Activity 02",
       image: "images/2.png"
     },
     {
-      id: 2,
       title: "Student Grade Report",
-      url: "xaruzo.github.io/activity03",
+      url: "Activities/Activity_3.html",
       tags: ["HTML Tables", "CSS"],
       num: "Activity 03",
       image: "images/3.png"
     },
     {
-      id: 3,
       title: "Weekly Class Schedule",
-      url: "xaruzo.github.io/activity04",
+      url: "Activities/Activity_4.html",
       tags: ["HTML", "Colspan"],
       num: "Activity 04",
       image: "images/4.png"
     },
     {
-      id: 4,
       title: "Nested Table Structure",
-      url: "xaruzo.github.io/activity05",
+      url: "Activities/Activity_5.html",
       tags: ["Nested Tables", "HTML"],
       num: "Activity 05",
       image: "images/5.png"
     },
     {
-      id: 5,
       title: "Page Layout Engine",
-      url: "xaruzo.github.io/activity06",
+      url: "Activities/Activity_6.html",
       tags: ["HTML Layout", "Rowspan"],
       num: "Activity 06",
       image: "images/6.png"
     },
     {
-      id: 6,
       title: "HTML List Types",
-      url: "xaruzo.github.io/activity07",
+      url: "Activities/Activity_7.html",
       tags: ["HTML Lists", "Typography"],
       num: "Activity 07",
       image: "images/7.png"

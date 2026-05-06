@@ -32,6 +32,13 @@ export class PortfolioController {
         const navLinksContainer = document.querySelector('.nav-links');
         const navLinks = document.querySelectorAll('.nav-link');
 
+        const closeMenu = () => {
+            if (!hamburger) return;
+            hamburger.classList.remove('active');
+            navLinksContainer.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+        };
+
         if (hamburger) {
             hamburger.addEventListener('click', () => {
                 hamburger.classList.toggle('active');
@@ -42,21 +49,23 @@ export class PortfolioController {
 
         // Close menu when a link is clicked
         navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinksContainer.classList.remove('active');
-                document.body.classList.remove('no-scroll');
-            });
+            link.addEventListener('click', closeMenu);
         });
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (navLinksContainer.classList.contains('active') && 
-                !navLinksContainer.contains(e.target) && 
+            if (!hamburger) return;
+            if (navLinksContainer.classList.contains('active') &&
+                !navLinksContainer.contains(e.target) &&
                 !hamburger.contains(e.target)) {
-                hamburger.classList.remove('active');
-                navLinksContainer.classList.remove('active');
-                document.body.classList.remove('no-scroll');
+                closeMenu();
+            }
+        });
+
+        // Close menu on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinksContainer.classList.contains('active')) {
+                closeMenu();
             }
         });
     }
@@ -85,15 +94,15 @@ export class PortfolioController {
                         nameEl.innerHTML = `Xaru<span>${currentText.substring(4)}</span>`;
                     }
                     nameEl.setAttribute('data-text', currentText);
-                }, i * 150);
+                }, i * 100); // was 150ms — tightened to 100ms per character
             });
-        }, 350); // Timing synchronized with lightning strike
+        }, 250); // was 350ms
 
         // 3. System Status Steps
         const steps = [
-            { ms: 1200, text: 'Initializing Portfolio...' },
-            { ms: 2000, text: 'Loading Assets...' },
-            { ms: 2800, text: 'Xaruzo Ready.' }
+            { ms: 800,  text: 'Initializing Portfolio...' }, // was 1200
+            { ms: 1300, text: 'Loading Assets...' },          // was 2000
+            { ms: 1900, text: 'Xaruzo Ready.' }               // was 2800
         ];
 
         steps.forEach(step => {
@@ -105,11 +114,10 @@ export class PortfolioController {
         // 4. Final Hide
         setTimeout(() => {
             overlay.classList.add('hidden');
-            // Remove from DOM or set display:none after transition
             setTimeout(() => {
                 overlay.style.display = 'none';
             }, 1000);
-        }, 3500);
+        }, 2500); // was 3500
     }
 
     triggerExplosion(container) {
@@ -176,7 +184,7 @@ export class PortfolioController {
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                if (window.scrollY >= (sectionTop - sectionHeight / 3)) {
                     current = section.getAttribute('id');
                 }
             });
@@ -194,7 +202,11 @@ export class PortfolioController {
         const obs = new IntersectionObserver((entries) => {
             entries.forEach(e => {
                 if (e.isIntersecting) {
+                    e.target.style.willChange = 'opacity, transform';
                     e.target.classList.add('visible');
+                    e.target.addEventListener('transitionend', () => {
+                        e.target.style.willChange = 'auto';
+                    }, { once: true });
                 } else {
                     // Return animation: reset when completely out of view
                     const rect = e.target.getBoundingClientRect();
@@ -283,6 +295,25 @@ export class PortfolioController {
                 if (this.currentProjectIndex < items.length - 1) this.openLightbox(this.currentProjectIndex + 1);
             }
         });
+
+        // Swipe support for mobile
+        let touchStartX = 0;
+        if (overlay) {
+            overlay.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            overlay.addEventListener('touchend', e => {
+                if (!overlay.classList.contains('active')) return;
+                const delta = e.changedTouches[0].screenX - touchStartX;
+                if (Math.abs(delta) < 40) return; // ignore short taps
+                if (delta < 0 && this.currentProjectIndex < items.length - 1) {
+                    this.openLightbox(this.currentProjectIndex + 1); // swipe left = next
+                } else if (delta > 0 && this.currentProjectIndex > 0) {
+                    this.openLightbox(this.currentProjectIndex - 1); // swipe right = prev
+                }
+            }, { passive: true });
+        }
     }
 
     openLightbox(idx) {
@@ -291,6 +322,7 @@ export class PortfolioController {
         const overlay = document.getElementById('lightbox');
         const lbTitle = document.getElementById('lb-title');
         const lbNum = document.getElementById('lb-num');
+        const lbDemo = document.getElementById('lb-demo');
         const lbPrev = document.getElementById('lb-prev');
         const lbNext = document.getElementById('lb-next');
         const lbImages = document.querySelectorAll('.lb-img-item');
@@ -306,13 +338,12 @@ export class PortfolioController {
 
         if (lbTitle) lbTitle.textContent = project.title;
         if (lbNum) lbNum.textContent = project.num;
+        if (lbDemo) lbDemo.href = project.url;
         if (lbPrev) lbPrev.disabled = idx === 0;
         if (lbNext) lbNext.disabled = idx === this.model.projects.length - 1;
 
         if (overlay) overlay.classList.add('active');
         document.body.style.overflow = 'hidden';
-        const closeBtn = document.getElementById('lb-close');
-        if (closeBtn) closeBtn.focus();
     }
 
     closeLightbox() {

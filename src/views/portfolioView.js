@@ -36,7 +36,7 @@ export class PortfolioView {
 
     renderHero(personalInfo, socialLinks) {
         const socialLinksHtml = socialLinks.map(link => `
-            <a href="${link.url}" class="hero-social-link fade-up" target="_blank" aria-label="${link.name}">
+            <a href="${link.url}" class="hero-social-link fade-up" target="_blank" rel="noopener noreferrer" aria-label="${link.name}">
                 ${this.getSocialIcon(link.icon)}
             </a>
         `).join('');
@@ -63,7 +63,7 @@ export class PortfolioView {
                         <div class="hero-circle-fill"></div>
                         <div class="hero-circle-ring"></div>
                         <div class="hero-photo">
-                            <img src="${personalInfo.heroImage}" alt="${personalInfo.name}">
+                            <img src="${personalInfo.heroImage}" alt="${personalInfo.name}" onerror="this.style.display='none'">
                         </div>
                     </div>
                 </div>
@@ -91,8 +91,8 @@ export class PortfolioView {
                             <h4>${personalInfo.role.split(' & ')[1]}</h4>
                             <span>${personalInfo.year} &nbsp;|&nbsp; ${personalInfo.school} &nbsp;|&nbsp; ${personalInfo.location.split(', ')[1]}, ${personalInfo.location.split(', ')[0]}</span>
                         </div>
-                        <div class="fade-up delay-3" style="margin-top:24px;padding:20px 0;border-top:1px solid var(--gray);border-bottom:1px solid var(--gray);">
-                            <p style="font-size:0.8rem;color:var(--mid);line-height:1.9;">
+                        <div class="about-focus-wrap fade-up delay-3">
+                            <p class="about-focus-text">
                                 Focus Areas: ${focusAreasHtml}
                             </p>
                         </div>
@@ -103,18 +103,12 @@ export class PortfolioView {
     }
 
     renderSkills(skills) {
-        const skillsHtml = skills.map((skill, index) => {
-            const isDevIcon = skill.icon.startsWith('devicon-');
-            const iconHtml = isDevIcon 
-                ? `<i class="${skill.icon}"></i>`
-                : `<i data-lucide="${skill.icon}"></i>`;
-
-            return `
-                <div class="skill-card fade-up delay-${(index % 6) + 1}">
-                    <div class="skill-icon">
-                        ${iconHtml}
-                    </div>
-                    <h4>${skill.name}</h4>
+        const skillsHtml = skills.map((skill, index) => `
+            <div class="skill-card fade-up delay-${(index % 6) + 1}">
+                <div class="skill-icon">
+                    <i data-lucide="${skill.icon}"></i>
+                </div>
+                <h4>${skill.name}</h4>
                 <p>${skill.description}</p>
                 <div class="skill-tags">
                     ${skill.tags.map(tag => `<span class="skill-tag">${tag}</span>`).join('')}
@@ -123,8 +117,7 @@ export class PortfolioView {
                     <div class="skill-bar" data-width="${skill.level}%" style="width: 0;"></div>
                 </div>
             </div>
-            `;
-        }).join('');
+        `).join('');
 
         return `
             <section id="skills">
@@ -141,37 +134,39 @@ export class PortfolioView {
     }
 
     renderWork(projects) {
-        const projectsHtml = projects.map((project, index) => {
-            const techTags = project.tags ? project.tags.map(t => `<span class="proj-tag">${t}</span>`).join('') : '';
-            
-            return `
-                <div class="project-card fade-up delay-${(index % 3) + 1}" data-index="${index}">
-                    <div class="gallery-screen">
-                        <img src="${project.image}" alt="${project.title}">
-                        <div class="gallery-overlay">
-                            <span class="view-btn">Full View &rarr;</span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-num">${project.num}</span>
-                        <h3>${project.title}</h3>
-                        <p>${project.description}</p>
-                        <div class="project-tech-tags">
-                            ${techTags}
+        const projectsHtml = projects.map((project, index) => `
+            <div class="gallery-item fade-up delay-${(index % 3) + 1}" data-index="${index}">
+                <div class="gallery-chrome">
+                    <div class="gallery-dot gdot-r"></div>
+                    <div class="gallery-dot gdot-y"></div>
+                    <div class="gallery-dot gdot-g"></div>
+                    <div class="gallery-url">${project.url.replace('https://', '')}</div>
+                </div>
+                <div class="gallery-screen">
+                    <img src="${project.image}" alt="${project.title}" onerror="this.style.visibility='hidden'">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-num">${project.num}</span>
+                        <span class="gallery-overlay-title">${project.title}</span>
+                        <div class="gallery-overlay-tags">
+                            ${project.tags.map(tag => `<span class="gallery-overlay-tag">${tag}</span>`).join('')}
                         </div>
                     </div>
                 </div>
-            `;
-        }).join('');
+                <div class="gallery-label">
+                    <span class="gallery-label-num">${project.num}</span>
+                    <span class="gallery-label-title">${project.title}</span>
+                </div>
+            </div>
+        `).join('');
 
         return `
             <section id="work">
                 <div class="section-header fade-up">
                     <span class="section-num">03 — Work</span>
-                    <h2 class="section-title">Selected<br>Technical Logic</h2>
+                    <h2 class="section-title">Featured<br>Activities</h2>
                     <div class="section-line"></div>
                 </div>
-                <div class="work-grid">
+                <div class="work-gallery">
                     ${projectsHtml}
                 </div>
             </section>
@@ -180,7 +175,7 @@ export class PortfolioView {
 
     renderContact(personalInfo, socialLinks) {
         const socialLinksHtml = socialLinks.map((link, index) => `
-            <a href="${link.url}" class="contact-link fade-up delay-${index + 1}" target="_blank">
+            <a href="${link.url}" class="contact-link fade-up delay-${index + 1}" target="_blank" rel="noopener noreferrer" aria-label="${link.name}">
                 <span class="contact-icon">${this.getSocialIcon(link.icon)}</span>
                 <span>${link.url.replace('https://', '')}</span>
             </a>
@@ -197,16 +192,17 @@ export class PortfolioView {
                     <div>
                         <p class="contact-desc fade-up delay-1">Open to collaborations, project discussions, and connecting with fellow system thinkers. Reach out through any channel below.</p>
                         ${socialLinksHtml}
-                        <a href="#" class="dl-btn fade-up delay-4">&#8595; Download Resume (PDF)</a>
+                        <!-- Unhide and update href once resume PDF is ready -->
+                        <!-- <a href="resume.pdf" class="dl-btn fade-up delay-4" download>&#8595; Download Resume (PDF)</a> -->
                     </div>
-                    <div class="fade-up delay-5" style="display:flex;align-items:flex-start;padding-top:8px;">
-                        <div style="border:1px solid rgba(255,255,255,0.1);padding:36px;border-radius:4px;width:100%;">
-                            <p class="fade-up" style="font-family:'Syne',sans-serif;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--maroon-glow);margin-bottom:20px;">Quick Note</p>
-                            <p class="fade-up delay-1" style="font-size:0.85rem;line-height:2;color:rgba(255,255,255,0.55);">
-                                I'm currently focused on deepening my expertise in <strong style="color:rgba(255,255,255,0.8);">JavaFX architecture</strong> and <strong style="color:rgba(255,255,255,0.8);">Python Flet</strong> reactive systems. If you're working on something that demands precision and logical thinking, I'd love to hear about it.
+                    <div class="contact-note-wrap fade-up delay-5">
+                        <div class="contact-note-box">
+                            <p class="contact-note-label fade-up">Quick Note</p>
+                            <p class="contact-note-body fade-up delay-1">
+                                I'm currently focused on deepening my expertise in <strong class="contact-note-strong">JavaFX architecture</strong> and <strong class="contact-note-strong">Python Flet</strong> reactive systems. If you're working on something that demands precision and logical thinking, I'd love to hear about it.
                             </p>
-                            <div class="fade-up delay-2" style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);">
-                                <p style="font-size:0.75rem;color:rgba(255,255,255,0.25);letter-spacing:1px;">${personalInfo.school} — ${personalInfo.location.split(', ')[1]}, PH</p>
+                            <div class="contact-note-footer fade-up delay-2">
+                                <p class="contact-note-school">${personalInfo.school} — ${personalInfo.location.split(', ')[1]}, PH</p>
                             </div>
                         </div>
                     </div>
@@ -216,9 +212,10 @@ export class PortfolioView {
     }
 
     renderFooter(personalInfo) {
+        const year = new Date().getFullYear();
         return `
             <footer>
-                <p>&copy; 2025 ${personalInfo.name} &mdash; ${personalInfo.nickname} &nbsp;|&nbsp; ${personalInfo.role.split(' & ')[1]} &middot; System Architect &nbsp;|&nbsp; ${personalInfo.school}</p>
+                <p>&copy; ${year} ${personalInfo.name} &mdash; ${personalInfo.nickname} &nbsp;|&nbsp; ${personalInfo.role.split(' & ')[1]} &middot; System Architect &nbsp;|&nbsp; ${personalInfo.school}</p>
             </footer>
         `;
     }
@@ -242,10 +239,13 @@ export class PortfolioView {
                         ${imagesHtml}
                     </div>
                     <div class="lightbox-footer">
-                        <span class="lightbox-num" id="lb-num"></span>
+                        <div class="lightbox-info">
+                            <span class="lightbox-num" id="lb-num"></span>
+                            <a href="#" id="lb-demo" class="lb-demo-btn" target="_blank">View Live Demo &rarr;</a>
+                        </div>
                         <div class="lightbox-nav">
-                            <button id="lb-prev">&#8592; Prev</button>
-                            <button id="lb-next">Next &#8594;</button>
+                            <button id="lb-prev" aria-label="Previous project">&#8592; Prev</button>
+                            <button id="lb-next" aria-label="Next project">Next &#8594;</button>
                         </div>
                     </div>
                 </div>
@@ -267,11 +267,13 @@ export class PortfolioView {
     render(data) {
         this.app.innerHTML = `
             ${this.renderNav()}
-            ${this.renderHero(data.personalInfo, data.socialLinks)}
-            ${this.renderAbout(data.personalInfo)}
-            ${this.renderSkills(data.skills)}
-            ${this.renderWork(data.projects)}
-            ${this.renderContact(data.personalInfo, data.socialLinks)}
+            <main>
+                ${this.renderHero(data.personalInfo, data.socialLinks)}
+                ${this.renderAbout(data.personalInfo)}
+                ${this.renderSkills(data.skills)}
+                ${this.renderWork(data.projects)}
+                ${this.renderContact(data.personalInfo, data.socialLinks)}
+            </main>
             ${this.renderFooter(data.personalInfo)}
             ${this.renderLightbox(data.projects)}
         `;

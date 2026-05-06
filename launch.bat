@@ -1,18 +1,18 @@
 @echo off
-TITLE SequenceLab Portfolio Launcher
+TITLE Xaruzo Portfolio Launcher
 SETLOCAL EnableDelayedExpansion
 
 :: Set colors (Purple background, White text)
 color 05
 
 echo ===================================================
-echo   Starting SequenceLab Application...
+echo   Starting Xaruzo Portfolio...
 echo ===================================================
 echo.
 echo Launching development server...
 echo.
 echo.
-echo ^> sequencelab-project@0.0.0 dev
+echo ^> xaruzo-portfolio@0.0.0 dev
 echo ^> vite
 echo.
 echo.
