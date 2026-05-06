@@ -3,6 +3,7 @@ export class PortfolioController {
         this.model = model;
         this.view = view;
         this.currentProjectIndex = 0;
+        this.currentZoom = 1;
     }
 
     init() {
@@ -244,11 +245,25 @@ export class PortfolioController {
         const lbClose = document.getElementById('lb-close');
         const lbPrev = document.getElementById('lb-prev');
         const lbNext = document.getElementById('lb-next');
+        const lbZoomIn = document.getElementById('lb-zoom-in');
+        const lbZoomOut = document.getElementById('lb-zoom-out');
 
         items.forEach((item, i) => {
             const screen = item.querySelector('.gallery-screen');
             if (screen) {
                 screen.addEventListener('click', () => this.openLightbox(i));
+                
+                item.addEventListener('touchstart', (e) => {
+                    // Toggle touch-active class on current item
+                    const isActive = item.classList.contains('touch-active');
+                    
+                    // Remove from all other items
+                    items.forEach(otherItem => otherItem.classList.remove('touch-active'));
+                    
+                    if (!isActive) {
+                        item.classList.add('touch-active');
+                    }
+                }, { passive: true });
             }
         });
 
@@ -273,6 +288,14 @@ export class PortfolioController {
             });
         }
 
+        if (lbZoomIn) {
+            lbZoomIn.addEventListener('click', () => this.updateZoom(0.2));
+        }
+
+        if (lbZoomOut) {
+            lbZoomOut.addEventListener('click', () => this.updateZoom(-0.2));
+        }
+
         document.addEventListener('keydown', e => {
             if (!overlay || !overlay.classList.contains('active')) return;
             if (e.key === 'Escape') this.closeLightbox();
@@ -286,6 +309,7 @@ export class PortfolioController {
     }
 
     openLightbox(idx) {
+        this.resetZoom();
         this.currentProjectIndex = idx;
         const project = this.model.projects[idx];
         const overlay = document.getElementById('lightbox');
@@ -319,5 +343,28 @@ export class PortfolioController {
         const overlay = document.getElementById('lightbox');
         if (overlay) overlay.classList.remove('active');
         document.body.style.overflow = '';
+        this.resetZoom();
+    }
+
+    updateZoom(delta) {
+        this.currentZoom = Math.min(Math.max(1, this.currentZoom + delta), 3);
+        const lbImages = document.querySelectorAll('.lb-img-item');
+        lbImages.forEach(img => {
+            if (img.classList.contains('active')) {
+                img.style.transform = `scale(${this.currentZoom})`;
+                img.style.transition = 'transform 0.2s ease-out';
+                // Adjust transform origin for better scrolling
+                img.style.transformOrigin = 'top center';
+            }
+        });
+    }
+
+    resetZoom() {
+        this.currentZoom = 1;
+        const lbImages = document.querySelectorAll('.lb-img-item');
+        lbImages.forEach(img => {
+            img.style.transform = 'scale(1)';
+            img.style.transition = 'none';
+        });
     }
 }

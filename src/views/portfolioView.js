@@ -238,9 +238,15 @@ export class PortfolioView {
                     </div>
                     <div class="lightbox-footer">
                         <span class="lightbox-num" id="lb-num"></span>
-                        <div class="lightbox-nav">
-                            <button id="lb-prev">&#8592; Prev</button>
-                            <button id="lb-next">Next &#8594;</button>
+                        <div class="lightbox-controls">
+                            <div class="zoom-controls">
+                                <button id="lb-zoom-out" aria-label="Zoom out"><i data-lucide="zoom-out"></i></button>
+                                <button id="lb-zoom-in" aria-label="Zoom in"><i data-lucide="zoom-in"></i></button>
+                            </div>
+                            <div class="lightbox-nav">
+                                <button id="lb-prev">&#8592; Prev</button>
+                                <button id="lb-next">Next &#8594;</button>
+                            </div>
                         </div>
                     </div>
                 </div>
