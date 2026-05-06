@@ -105,7 +105,9 @@ export class PortfolioView {
     renderSkills(skills) {
         const skillsHtml = skills.map((skill, index) => `
             <div class="skill-card fade-up delay-${(index % 6) + 1}">
-                <div class="skill-icon">${skill.icon}</div>
+                <div class="skill-icon">
+                    <i data-lucide="${skill.icon}"></i>
+                </div>
                 <h4>${skill.name}</h4>
                 <p>${skill.description}</p>
                 <div class="skill-bar-wrap">

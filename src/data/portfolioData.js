@@ -26,12 +26,12 @@ export const portfolioData = {
     { name: "X", url: "https://x.com/Xaruzo", icon: "x" }
   ],
   skills: [
-    { name: "JavaFX", icon: "☕", description: "Desktop application development with secure login flows, data persistence layers, and FXML scene architecture.", level: 88 },
-    { name: "Python Flet", icon: "🐍", description: "Cross-platform reactive UI development optimized for speed and intuitive data-flow patterns.", level: 82 },
-    { name: "C++ Fundamentals", icon: "⚙️", description: "Memory management, pointer manipulation, data structures, and algorithmic problem solving.", level: 74 },
-    { name: "HTML & CSS", icon: "🌐", description: "From simple semantic markup to complex multi-activity layouts — including tables, nested structures, and custom styling.", level: 90 },
-    { name: "SQLite / Databases", icon: "🗃️", description: "Relational data modeling and persistent storage integration in desktop applications.", level: 78 },
-    { name: "Logic & Architecture", icon: "🧠", description: "System design, control flow modeling, and translating real-world complexity into testable, modular code.", level: 93 }
+    { name: "JavaFX", icon: "coffee", description: "Desktop application development with secure login flows, data persistence layers, and FXML scene architecture.", level: 88 },
+    { name: "Python Flet", icon: "monitor", description: "Cross-platform reactive UI development optimized for speed and intuitive data-flow patterns.", level: 82 },
+    { name: "C++ Fundamentals", icon: "cpu", description: "Memory management, pointer manipulation, data structures, and algorithmic problem solving.", level: 74 },
+    { name: "HTML & CSS", icon: "layout", description: "From simple semantic markup to complex multi-activity layouts — including tables, nested structures, and custom styling.", level: 90 },
+    { name: "SQLite / Databases", icon: "database", description: "Relational data modeling and persistent storage integration in desktop applications.", level: 78 },
+    { name: "Logic & Architecture", icon: "component", description: "System design, control flow modeling, and translating real-world complexity into testable, modular code.", level: 93 }
   ],
   projects: [
     {

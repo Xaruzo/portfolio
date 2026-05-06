@@ -7,6 +7,9 @@ export class PortfolioController {
 
     init() {
         this.view.render(this.model);
+        if (window.lucide) {
+            lucide.createIcons();
+        }
         this.initTheme();
         this.initMobileNav();
         this.initScrollReveal();
