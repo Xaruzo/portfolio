@@ -75,7 +75,12 @@ export class PortfolioController {
             fullName.split("").forEach((char, i) => {
                 setTimeout(() => {
                     currentText += char;
-                    nameEl.textContent = currentText;
+                    // Split "Xaruzo" into "Xaru" and "zo" for coloring
+                    if (currentText.length <= 4) {
+                        nameEl.innerHTML = `${currentText}`;
+                    } else {
+                        nameEl.innerHTML = `Xaru<span>${currentText.substring(4)}</span>`;
+                    }
                     nameEl.setAttribute('data-text', currentText);
                 }, i * 150);
             });
