@@ -83,9 +83,9 @@ export class PortfolioController {
 
         // 3. System Status Steps
         const steps = [
-            { ms: 1200, text: 'Kernel Loading...' },
-            { ms: 2000, text: 'Mapping Modules...' },
-            { ms: 2800, text: 'SequenceLab Ready.' }
+            { ms: 1200, text: 'Initializing Portfolio...' },
+            { ms: 2000, text: 'Loading Assets...' },
+            { ms: 2800, text: 'Xaruzo Ready.' }
         ];
 
         steps.forEach(step => {
