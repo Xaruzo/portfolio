@@ -6,7 +6,10 @@ export class PortfolioView {
     renderNav() {
         return `
             <nav>
-                <a href="#home" class="logo">Xaru<span>zo</span></a>
+                <a href="#home" class="logo">
+                    <img src="images/logo.png" alt="Xaruzo Logo" class="nav-logo-img">
+                    Xaru<span>zo</span>
+                </a>
                 
                 <div class="nav-right">
                     <ul class="nav-links">
