@@ -2,18 +2,18 @@ export const portfolioData = {
   personalInfo: {
     name: "Reignston John B. Manzano",
     nickname: "Xaruzo",
-    role: "Web Developer & BSCS Student",
+    role: "Software Engineer & BS Computer Science Student",
     location: "Tandag City, Philippines",
     school: "North Eastern Mindanao State University",
-    year: "2nd Year",
+    year: "BS Computer Science",
     email: "rjbmanzano@nemsu.edu.ph",
     phone: "09813431245",
-    description: "A Web Developer specialized in both front-end and back-end development, based in Tandag City, Philippines. 2nd Year — North Eastern Mindanao State University.",
+    description: "Software Engineer specializing in system architecture and reactive UI engineering. Currently pursuing a BS in Computer Science at North Eastern Mindanao State University.",
     heroImage: "images/hero.png",
     about: [
-      "I'm a 2nd-year Bachelor of Science in Computer Science student at North Eastern Mindanao State University, Tandag Campus. My identity as a developer centers on one core belief: every complex system has an elegant, logical solution.",
-      "Specializing in JavaFX for desktop application architecture and Python Flet for reactive cross-platform UI, I bridge the gap between abstract logic and tangible, working systems.",
-      "From manipulating pointers in C++ to engineering full-featured desktop portals, I approach each project as an opportunity to convert chaos into clean, maintainable architecture."
+      "I am a Computer Science student and Software Engineer focused on building scalable, high-performance systems. My approach to development is rooted in the belief that every complex problem has an elegant, logical architectural solution.",
+      "Specializing in JavaFX for robust desktop applications and Python Flet for modern reactive interfaces, I specialize in bridging the gap between theoretical computer science and production-ready software.",
+      "From deep-level memory management in C++ to engineering modular desktop ecosystems, I treat every project as an opportunity to implement clean, maintainable, and efficient code architecture."
     ],
     focusAreas: [
       "Desktop Application Design",
@@ -75,49 +75,49 @@ export const portfolioData = {
   ],
   projects: [
     {
-      title: "Estudyante — Personal Poem",
+      title: "Semantic Typography & Layout",
       url: "Activities/Activity_1.html",
       tags: ["HTML", "Typography"],
       num: "Activity 01",
       image: "images/1.png"
     },
     {
-      title: "Favorite Hobby Page",
+      title: "Interactive User Interface Design",
       url: "Activities/Activity_2.html",
       tags: ["HTML", "CSS Styling"],
       num: "Activity 02",
       image: "images/2.png"
     },
     {
-      title: "Student Grade Report",
+      title: "Data Visualization & Relational Tables",
       url: "Activities/Activity_3.html",
       tags: ["HTML Tables", "CSS"],
       num: "Activity 03",
       image: "images/3.png"
     },
     {
-      title: "Weekly Class Schedule",
+      title: "Tabular Data Architecture",
       url: "Activities/Activity_4.html",
       tags: ["HTML", "Colspan"],
       num: "Activity 04",
       image: "images/4.png"
     },
     {
-      title: "Nested Table Structure",
+      title: "Hierarchical Grid Structures",
       url: "Activities/Activity_5.html",
       tags: ["Nested Tables", "HTML"],
       num: "Activity 05",
       image: "images/5.png"
     },
     {
-      title: "Page Layout Engine",
+      title: "Structural Layout Engineering",
       url: "Activities/Activity_6.html",
       tags: ["HTML Layout", "Rowspan"],
       num: "Activity 06",
       image: "images/6.png"
     },
     {
-      title: "HTML List Types",
+      title: "Information Hierarchy Systems",
       url: "Activities/Activity_7.html",
       tags: ["HTML Lists", "Typography"],
       num: "Activity 07",
