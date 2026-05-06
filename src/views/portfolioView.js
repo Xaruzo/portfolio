@@ -110,6 +110,9 @@ export class PortfolioView {
                 </div>
                 <h4>${skill.name}</h4>
                 <p>${skill.description}</p>
+                <div class="skill-tags">
+                    ${skill.tags.map(tag => `<span class="skill-tag">${tag}</span>`).join('')}
+                </div>
                 <div class="skill-bar-wrap">
                     <div class="skill-bar" data-width="${skill.level}%" style="width: 0;"></div>
                 </div>

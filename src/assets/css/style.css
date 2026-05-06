@@ -368,6 +368,28 @@
   .skill-card h4 { font-family:'Syne',sans-serif; font-weight:700; margin-bottom:8px; color: var(--text-main); }
   .skill-card p { font-size:0.82rem; color:var(--mid); line-height:1.7; }
   .skill-card p { flex:1; }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0;
+  }
+  .skill-tag {
+    font-size: 0.65rem;
+    padding: 4px 10px;
+    background: var(--bg);
+    color: var(--maroon);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+  }
+  .skill-card:hover .skill-tag {
+    border-color: var(--maroon);
+    background: var(--maroon);
+    color: #fff;
+  }
   .skill-bar-wrap { margin-top:14px; height:4px; background:var(--gray); border-radius:2px; overflow:hidden; }
   .skill-bar { height:100%; background:var(--maroon); border-radius:2px; }
 
@@ -417,9 +439,12 @@
   }
   /* Screenshot */
   .gallery-screen {
-    width: 100%; height: 170px;
-    overflow: hidden; display: block;
-    position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* matches landscape screenshots perfectly */
+  height: auto;            /* remove the fixed 170px */
+  overflow: hidden;
+  display: block;
+  position: relative;
   }
   .gallery-screen img {
     width: 100%; height: 100%;
