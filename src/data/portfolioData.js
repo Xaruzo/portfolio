@@ -28,35 +28,35 @@ export const portfolioData = {
   skills: [
     { 
       name: "JavaFX", 
-      icon: "coffee", 
+      icon: "devicon-java-plain colored", 
       description: "Desktop application development with secure login flows, data persistence layers, and FXML scene architecture.", 
       level: 88,
       tags: ["FXML", "SceneBuilder", "Event Handling", "UI Threading"]
     },
     { 
       name: "Python Flet", 
-      icon: "monitor", 
+      icon: "devicon-python-plain colored", 
       description: "Cross-platform reactive UI development optimized for speed and intuitive data-flow patterns.", 
       level: 82,
       tags: ["Reactive UI", "State Management", "Async/Await", "Custom Styling"]
     },
     { 
       name: "C++ Fundamentals", 
-      icon: "cpu", 
+      icon: "devicon-cplusplus-plain colored", 
       description: "Memory management, pointer manipulation, data structures, and algorithmic problem solving.", 
       level: 74,
       tags: ["Pointers", "OOP", "STL", "Memory Management"]
     },
     { 
       name: "HTML & CSS", 
-      icon: "layout", 
+      icon: "devicon-html5-plain colored", 
       description: "From simple semantic markup to complex multi-activity layouts — including tables, nested structures, and custom styling.", 
       level: 90,
       tags: ["Flexbox", "Grid", "Responsive", "Semantic HTML"]
     },
     { 
       name: "SQLite / Databases", 
-      icon: "database", 
+      icon: "devicon-sqlite-plain colored", 
       description: "Relational data modeling and persistent storage integration in desktop applications.", 
       level: 78,
       tags: ["SQL Queries", "Relational Mapping", "CRUD", "DB Schema"]

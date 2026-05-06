@@ -103,12 +103,18 @@ export class PortfolioView {
     }
 
     renderSkills(skills) {
-        const skillsHtml = skills.map((skill, index) => `
-            <div class="skill-card fade-up delay-${(index % 6) + 1}">
-                <div class="skill-icon">
-                    <i data-lucide="${skill.icon}"></i>
-                </div>
-                <h4>${skill.name}</h4>
+        const skillsHtml = skills.map((skill, index) => {
+            const isDevIcon = skill.icon.startsWith('devicon-');
+            const iconHtml = isDevIcon 
+                ? `<i class="${skill.icon}"></i>`
+                : `<i data-lucide="${skill.icon}"></i>`;
+
+            return `
+                <div class="skill-card fade-up delay-${(index % 6) + 1}">
+                    <div class="skill-icon">
+                        ${iconHtml}
+                    </div>
+                    <h4>${skill.name}</h4>
                 <p>${skill.description}</p>
                 <div class="skill-tags">
                     ${skill.tags.map(tag => `<span class="skill-tag">${tag}</span>`).join('')}
@@ -117,7 +123,8 @@ export class PortfolioView {
                     <div class="skill-bar" data-width="${skill.level}%" style="width: 0;"></div>
                 </div>
             </div>
-        `).join('');
+            `;
+        }).join('');
 
         return `
             <section id="skills">
@@ -134,39 +141,37 @@ export class PortfolioView {
     }
 
     renderWork(projects) {
-        const projectsHtml = projects.map((project, index) => `
-            <div class="gallery-item fade-up delay-${(index % 3) + 1}" data-index="${project.id}">
-                <div class="gallery-chrome">
-                    <div class="gallery-dot gdot-r"></div>
-                    <div class="gallery-dot gdot-y"></div>
-                    <div class="gallery-dot gdot-g"></div>
-                    <div class="gallery-url">${project.url}</div>
-                </div>
-                <div class="gallery-screen">
-                    <img src="${project.image}" alt="${project.title}">
-                    <div class="gallery-overlay">
-                        <span class="gallery-overlay-num">${project.num}</span>
-                        <span class="gallery-overlay-title">${project.title}</span>
-                        <div class="gallery-overlay-tags">
-                            ${project.tags.map(tag => `<span class="gallery-overlay-tag">${tag}</span>`).join('')}
+        const projectsHtml = projects.map((project, index) => {
+            const techTags = project.tags ? project.tags.map(t => `<span class="proj-tag">${t}</span>`).join('') : '';
+            
+            return `
+                <div class="project-card fade-up delay-${(index % 3) + 1}" data-index="${index}">
+                    <div class="gallery-screen">
+                        <img src="${project.image}" alt="${project.title}">
+                        <div class="gallery-overlay">
+                            <span class="view-btn">Full View &rarr;</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-num">${project.num}</span>
+                        <h3>${project.title}</h3>
+                        <p>${project.description}</p>
+                        <div class="project-tech-tags">
+                            ${techTags}
                         </div>
                     </div>
                 </div>
-                <div class="gallery-label">
-                    <span class="gallery-label-num">${project.num}</span>
-                    <span class="gallery-label-title">${project.title}</span>
-                </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
 
         return `
             <section id="work">
                 <div class="section-header fade-up">
                     <span class="section-num">03 — Work</span>
-                    <h2 class="section-title">Featured<br>Activities</h2>
+                    <h2 class="section-title">Selected<br>Technical Logic</h2>
                     <div class="section-line"></div>
                 </div>
-                <div class="work-gallery">
+                <div class="work-grid">
                     ${projectsHtml}
                 </div>
             </section>
