@@ -286,16 +286,21 @@ export class PortfolioController {
         this.currentProjectIndex = idx;
         const project = this.model.projects[idx];
         const overlay = document.getElementById('lightbox');
-        const lbImg = document.getElementById('lb-img');
         const lbTitle = document.getElementById('lb-title');
         const lbNum = document.getElementById('lb-num');
         const lbPrev = document.getElementById('lb-prev');
         const lbNext = document.getElementById('lb-next');
+        const lbImages = document.querySelectorAll('.lb-img-item');
 
-        if (lbImg) {
-            lbImg.src = project.image;
-            lbImg.alt = project.title;
-        }
+        // Toggle active image
+        lbImages.forEach(img => {
+            if (parseInt(img.getAttribute('data-index')) === idx) {
+                img.classList.add('active');
+            } else {
+                img.classList.remove('active');
+            }
+        });
+
         if (lbTitle) lbTitle.textContent = project.title;
         if (lbNum) lbNum.textContent = project.num;
         if (lbPrev) lbPrev.disabled = idx === 0;

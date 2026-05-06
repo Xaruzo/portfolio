@@ -894,9 +894,13 @@
   .lightbox-img-wrap {
     overflow: auto; flex: 1;
     display: flex; align-items: flex-start; justify-content: center;
+    position: relative;
   }
   .lightbox-img-wrap img {
-    display: block; width: 100%; height: auto;
+    display: none; width: 100%; height: auto;
+  }
+  .lightbox-img-wrap img.active {
+    display: block;
   }
   .lightbox-footer {
     background: var(--bg); padding: 10px 18px;

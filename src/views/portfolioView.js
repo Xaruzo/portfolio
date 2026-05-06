@@ -213,7 +213,11 @@ export class PortfolioView {
         `;
     }
 
-    renderLightbox() {
+    renderLightbox(projects) {
+        const imagesHtml = projects.map((project, index) => `
+            <img class="lb-img-item" data-index="${index}" src="${project.image}" alt="${project.title}">
+        `).join('');
+
         return `
             <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true">
                 <div class="lightbox-box">
@@ -225,7 +229,7 @@ export class PortfolioView {
                         <button class="lightbox-close" id="lb-close" aria-label="Close">&times;</button>
                     </div>
                     <div class="lightbox-img-wrap">
-                        <img id="lb-img" src="" alt="">
+                        ${imagesHtml}
                     </div>
                     <div class="lightbox-footer">
                         <span class="lightbox-num" id="lb-num"></span>
@@ -259,7 +263,7 @@ export class PortfolioView {
             ${this.renderWork(data.projects)}
             ${this.renderContact(data.personalInfo, data.socialLinks)}
             ${this.renderFooter(data.personalInfo)}
-            ${this.renderLightbox()}
+            ${this.renderLightbox(data.projects)}
         `;
     }
 }
