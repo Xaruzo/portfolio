@@ -241,7 +241,7 @@ export class PortfolioView {
                     <div class="lightbox-footer">
                         <div class="lightbox-info">
                             <span class="lightbox-num" id="lb-num"></span>
-                            <a href="#" id="lb-demo" class="lb-demo-btn" target="_blank">View Live Demo &rarr;</a>
+                            <a href="#" id="lb-demo" class="lb-demo-btn" target="_blank">Open Activity &rarr;</a>
                         </div>
                         <div class="lightbox-nav">
                             <button id="lb-prev" aria-label="Previous project">&#8592; Prev</button>
