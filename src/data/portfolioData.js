@@ -6,6 +6,8 @@ export const portfolioData = {
     location: "Tandag City, Philippines",
     school: "North Eastern Mindanao State University",
     year: "2nd Year",
+    email: "rjbmanzano@nemsu.edu.ph",
+    phone: "09813431245",
     description: "A Web Developer specialized in both front-end and back-end development, based in Tandag City, Philippines. 2nd Year — North Eastern Mindanao State University.",
     heroImage: "images/hero.png",
     about: [
@@ -23,7 +25,9 @@ export const portfolioData = {
   socialLinks: [
     { name: "GitHub", url: "https://github.com/Xaruzo", icon: "github" },
     { name: "LinkedIn", url: "https://www.linkedin.com/in/reignston-manzano-9b205226a/", icon: "linkedin" },
-    { name: "X", url: "https://x.com/Xaruzo", icon: "x" }
+    { name: "X", url: "https://x.com/Xaruzo", icon: "x" },
+    { name: "Email", url: "mailto:rjbmanzano@nemsu.edu.ph", icon: "mail" },
+    { name: "Phone", url: "tel:+639813431245", icon: "phone" }
   ],
   skills: [
     { 

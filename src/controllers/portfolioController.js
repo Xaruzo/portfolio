@@ -16,7 +16,6 @@ export class PortfolioController {
         this.initSkillBars();
         this.initLightbox();
         this.initActiveNav();
-        this.handleIntro();
         this.preloadProjectImages();
     }
 
@@ -68,84 +67,6 @@ export class PortfolioController {
                 closeMenu();
             }
         });
-    }
-
-    handleIntro() {
-        const overlay = document.getElementById('intro-overlay');
-        const status = overlay.querySelector('.intro-status');
-        const nameEl = document.getElementById('intro-name');
-        const sparksContainer = document.getElementById('sparks-container');
-        const fullName = "Xaruzo";
-        
-        // 1. Single Lightning Strike from top-left to center
-        
-        // 2. Cumulative Name Reveal + Spark Impact
-        setTimeout(() => {
-            this.triggerExplosion(sparksContainer);
-            
-            let currentText = "";
-            fullName.split("").forEach((char, i) => {
-                setTimeout(() => {
-                    currentText += char;
-                    // Split "Xaruzo" into "Xaru" and "zo" for coloring
-                    if (currentText.length <= 4) {
-                        nameEl.innerHTML = `${currentText}`;
-                    } else {
-                        nameEl.innerHTML = `Xaru<span>${currentText.substring(4)}</span>`;
-                    }
-                    nameEl.setAttribute('data-text', currentText);
-                }, i * 100); // was 150ms — tightened to 100ms per character
-            });
-        }, 250); // was 350ms
-
-        // 3. System Status Steps
-        const steps = [
-            { ms: 800,  text: 'Initializing Portfolio...' }, // was 1200
-            { ms: 1300, text: 'Loading Assets...' },          // was 2000
-            { ms: 1900, text: 'Xaruzo Ready.' }               // was 2800
-        ];
-
-        steps.forEach(step => {
-            setTimeout(() => {
-                status.textContent = step.text;
-            }, step.ms);
-        });
-
-        // 4. Final Hide
-        setTimeout(() => {
-            overlay.classList.add('hidden');
-            setTimeout(() => {
-                overlay.style.display = 'none';
-            }, 1000);
-        }, 2500); // was 3500
-    }
-
-    triggerExplosion(container) {
-        for (let i = 0; i < 20; i++) {
-            const spark = document.createElement('div');
-            spark.className = 'spark';
-            
-            // Random direction and distance
-            const angle = Math.random() * Math.PI * 2;
-            const distance = 50 + Math.random() * 100;
-            const tx = Math.cos(angle) * distance + 'px';
-            const ty = Math.sin(angle) * distance + 'px';
-            
-            spark.style.setProperty('--tx', tx);
-            spark.style.setProperty('--ty', ty);
-            
-            // Randomize size and duration
-            const size = 2 + Math.random() * 3 + 'px';
-            spark.style.width = size;
-            spark.style.height = size;
-            
-            spark.style.animation = `explode ${0.4 + Math.random() * 0.4}s ease-out forwards`;
-            
-            container.appendChild(spark);
-            
-            // Cleanup
-            setTimeout(() => spark.remove(), 1000);
-        }
     }
 
     initTheme() {
