@@ -67,13 +67,13 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 12px;
   }
   .nav-logo-img {
     width: 32px;
     height: 32px;
     object-fit: contain;
     border-radius: 4px;
+    margin-right: 12px;
   }
   .logo span { color: var(--text-main); }
   .nav-right { display: flex; align-items: center; gap: 2.5rem; }
