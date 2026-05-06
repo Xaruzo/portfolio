@@ -14,6 +14,14 @@ export class PortfolioController {
         this.initLightbox();
         this.initActiveNav();
         this.handleIntro();
+        this.preloadProjectImages();
+    }
+
+    preloadProjectImages() {
+        this.model.projects.forEach(project => {
+            const img = new Image();
+            img.src = project.image;
+        });
     }
 
     initMobileNav() {
@@ -280,7 +288,7 @@ export class PortfolioController {
         const lbNext = document.getElementById('lb-next');
 
         if (lbImg) {
-            lbImg.src = `${project.image}?v=${new Date().getTime()}`;
+            lbImg.src = project.image;
             lbImg.alt = project.title;
         }
         if (lbTitle) lbTitle.textContent = project.title;

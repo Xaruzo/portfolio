@@ -63,7 +63,7 @@ export class PortfolioView {
                         <div class="hero-circle-fill"></div>
                         <div class="hero-circle-ring"></div>
                         <div class="hero-photo">
-                            <img src="${personalInfo.heroImage}?v=${new Date().getTime()}" alt="${personalInfo.name}">
+                            <img src="${personalInfo.heroImage}" alt="${personalInfo.name}">
                         </div>
                     </div>
                 </div>
@@ -138,7 +138,7 @@ export class PortfolioView {
                     <div class="gallery-url">${project.url}</div>
                 </div>
                 <div class="gallery-screen">
-                    <img src="${project.image}?v=${new Date().getTime()}" alt="${project.title}">
+                    <img src="${project.image}" alt="${project.title}">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-num">${project.num}</span>
                         <span class="gallery-overlay-title">${project.title}</span>
