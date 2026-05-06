@@ -44,7 +44,7 @@ export class PortfolioView {
         return `
             <section id="home">
                 <div class="hero-text">
-                    <span class="hero-tag fade-up">Available for Collaboration</span>
+                    <span class="hero-tag fade-up">Open to Opportunities</span>
                     <h1 class="hero-name fade-up delay-1">Hi, I'm <em>${personalInfo.name.split(' ')[0]}</em><br>${personalInfo.name.split(' ').slice(1).join(' ')}</h1>
                     <p class="hero-role fade-up delay-2">${personalInfo.role}</p>
                     <p class="hero-desc fade-up delay-3">${personalInfo.description}</p>
@@ -163,7 +163,7 @@ export class PortfolioView {
             <section id="work">
                 <div class="section-header fade-up">
                     <span class="section-num">03 — Work</span>
-                    <h2 class="section-title">Featured<br>Activities</h2>
+                    <h2 class="section-title">Selected<br>Work</h2>
                     <div class="section-line"></div>
                 </div>
                 <div class="work-gallery">
@@ -185,12 +185,12 @@ export class PortfolioView {
             <section id="contact">
                 <div class="section-header fade-up">
                     <span class="section-num">04 — Contact</span>
-                    <h2 class="section-title">Let's Build<br>Something Logical</h2>
+                    <h2 class="section-title">Let's Work<br>Together</h2>
                     <div class="section-line"></div>
                 </div>
                 <div class="contact-grid">
                     <div>
-                        <p class="contact-desc fade-up delay-1">Open to collaborations, project discussions, and connecting with fellow system thinkers. Reach out through any channel below.</p>
+                        <p class="contact-desc fade-up delay-1">I'm open to internship opportunities, project collaborations, and conversations with engineers building things that matter. If you're looking for someone who takes code quality seriously — let's connect.</p>
                         ${socialLinksHtml}
                         <!-- Unhide and update href once resume PDF is ready -->
                         <!-- <a href="resume.pdf" class="dl-btn fade-up delay-4" download>&#8595; Download Resume (PDF)</a> -->
@@ -199,8 +199,8 @@ export class PortfolioView {
                         <div class="contact-note-box">
                             <p class="contact-note-label fade-up">Quick Note</p>
                             <p class="contact-note-body fade-up delay-1">
-                                I'm currently focused on deepening my expertise in <strong class="contact-note-strong">JavaFX architecture</strong> and <strong class="contact-note-strong">Python Flet</strong> reactive systems. If you're working on something that demands precision and logical thinking, I'd love to hear about it.
-                            </p>
+                                    Currently deepening my expertise in <strong class="contact-note-strong">JavaFX architecture</strong> and <strong class="contact-note-strong">Python Flet</strong> reactive systems while completing my CS degree. If you're building something that demands clean logic and precise engineering, I'd genuinely love to hear about it.
+                                </p>
                             <div class="contact-note-footer fade-up delay-2">
                                 <p class="contact-note-school">${personalInfo.school} — ${personalInfo.location.split(', ')[1]}, PH</p>
                             </div>
