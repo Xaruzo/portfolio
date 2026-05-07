@@ -525,23 +525,29 @@
     align-items: center;
     border-bottom: 1px solid rgba(255,255,255,0.08);
   }
-  .copy-email-btn {
-    background: none;
-    border: none;
-    color: var(--contact-muted);
+  .email-copy-wrapper {
     cursor: pointer;
-    padding: 8px;
-    transition: color 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    transition: background 0.2s;
   }
-  .copy-email-btn:hover {
+  .email-copy-wrapper:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .contact-copy-hint {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
     color: var(--maroon-glow);
+    opacity: 0;
+    transition: opacity 0.2s;
+    margin-left: auto;
+    letter-spacing: 1px;
+    text-transform: uppercase;
   }
-  .copy-email-btn svg {
-    width: 16px;
-    height: 16px;
+  .email-copy-wrapper:hover .contact-copy-hint {
+    opacity: 1;
+  }
+  .copy-email-btn {
+    display: none; /* Removed in favor of full wrapper click */
   }
   .contact-link:hover { color:var(--maroon-glow); }
 

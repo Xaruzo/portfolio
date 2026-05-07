@@ -178,13 +178,24 @@ export class PortfolioView {
             const isEmail = link.name === 'Email';
             const displayUrl = isEmail ? link.url.replace('mailto:', '') : (link.name === 'Phone' ? link.url.replace('tel:', '') : link.url.replace('https://', ''));
             
+            if (isEmail) {
+                return `
+                    <div class="contact-link-wrapper email-copy-wrapper fade-up delay-${index + 1}" data-email="${displayUrl}">
+                        <div class="contact-link">
+                            <span class="contact-icon">${this.getSocialIcon(link.icon)}</span>
+                            <span>${displayUrl}</span>
+                        </div>
+                        <div class="contact-copy-hint">Click to Copy</div>
+                    </div>
+                `;
+            }
+
             return `
                 <div class="contact-link-wrapper fade-up delay-${index + 1}">
                     <a href="${link.url}" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="${link.name}">
                         <span class="contact-icon">${this.getSocialIcon(link.icon)}</span>
                         <span>${displayUrl}</span>
                     </a>
-                    ${isEmail ? `<button class="copy-email-btn" data-email="${displayUrl}" aria-label="Copy email address"><i data-lucide="copy"></i></button>` : ''}
                 </div>
             `;
         }).join('');

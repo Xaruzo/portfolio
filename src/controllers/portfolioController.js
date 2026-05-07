@@ -122,13 +122,12 @@ export class PortfolioController {
     }
 
     initCopyEmail() {
-        const copyBtns = document.querySelectorAll('.copy-email-btn');
-        copyBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const email = btn.getAttribute('data-email');
+        const emailWrappers = document.querySelectorAll('.email-copy-wrapper');
+        emailWrappers.forEach(wrapper => {
+            wrapper.addEventListener('click', () => {
+                const email = wrapper.getAttribute('data-email');
                 navigator.clipboard.writeText(email).then(() => {
-                    this.showToast('Email copied to clipboard!');
+                    this.showToast('Email address copied!');
                 }).catch(err => {
                     console.error('Failed to copy: ', err);
                 });
@@ -157,7 +156,6 @@ export class PortfolioController {
             }, 300);
         }, 3000);
     }
-}
 
     initScrollReveal() {
         const obs = new IntersectionObserver((entries) => {
