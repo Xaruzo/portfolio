@@ -7,7 +7,6 @@ export const portfolioData = {
     school: "North Eastern Mindanao State University",
     year: "BS Computer Science",
     email: "rjbmanzano@nemsu.edu.ph",
-    phone: "09813431245",
     description: "A detail-driven Software Engineer and CS student with a strong foundation in system architecture, desktop development, and reactive UI engineering. I build software that is clean, performant, and built to scale.",
     heroImage: "images/hero.png",
     about: [
@@ -26,8 +25,7 @@ export const portfolioData = {
     { name: "GitHub", url: "https://github.com/Xaruzo", icon: "github" },
     { name: "LinkedIn", url: "https://www.linkedin.com/in/reignston-manzano-9b205226a/", icon: "linkedin" },
     { name: "X", url: "https://x.com/Xaruzo", icon: "x" },
-    { name: "Email", url: "mailto:rjbmanzano@nemsu.edu.ph", icon: "mail" },
-    { name: "Phone", url: "tel:+639813431245", icon: "phone" }
+    { name: "Email", url: "mailto:rjbmanzano@nemsu.edu.ph", icon: "mail" }
   ],
   skills: [
     { 

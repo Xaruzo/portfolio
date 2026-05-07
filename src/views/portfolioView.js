@@ -140,10 +140,10 @@ export class PortfolioView {
                     <div class="gallery-dot gdot-r"></div>
                     <div class="gallery-dot gdot-y"></div>
                     <div class="gallery-dot gdot-g"></div>
-                    <div class="gallery-url">${project.url.replace('https://', '')}</div>
+                    <div class="gallery-url">xaruzo.github.io › ${project.num.toLowerCase().replace(' ', '-')}</div>
                 </div>
                 <div class="gallery-screen">
-                    <img src="${project.image}" alt="${project.title}" onerror="this.style.visibility='hidden'">
+                    <img src="${project.image}" alt="${project.title}" loading="lazy" onerror="this.style.visibility='hidden'">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-num">${project.num}</span>
                         <span class="gallery-overlay-title">${project.title}</span>
@@ -174,15 +174,24 @@ export class PortfolioView {
     }
 
     renderContact(personalInfo, socialLinks) {
-        const socialLinksHtml = socialLinks.map((link, index) => `
-            <a href="${link.url}" class="contact-link fade-up delay-${index + 1}" target="_blank" rel="noopener noreferrer" aria-label="${link.name}">
-                <span class="contact-icon">${this.getSocialIcon(link.icon)}</span>
-                <span>${link.name === 'Email' ? link.url.replace('mailto:', '') : link.url.replace('https://', '')}</span>
-            </a>
-        `).join('');
+        const socialLinksHtml = socialLinks.map((link, index) => {
+            const isEmail = link.name === 'Email';
+            const displayUrl = isEmail ? link.url.replace('mailto:', '') : (link.name === 'Phone' ? link.url.replace('tel:', '') : link.url.replace('https://', ''));
+            
+            return `
+                <div class="contact-link-wrapper fade-up delay-${index + 1}">
+                    <a href="${link.url}" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="${link.name}">
+                        <span class="contact-icon">${this.getSocialIcon(link.icon)}</span>
+                        <span>${displayUrl}</span>
+                    </a>
+                    ${isEmail ? `<button class="copy-email-btn" data-email="${displayUrl}" aria-label="Copy email address"><i data-lucide="copy"></i></button>` : ''}
+                </div>
+            `;
+        }).join('');
 
         return `
             <section id="contact">
+                <div id="toast-container"></div>
                 <div class="section-header fade-up">
                     <span class="section-num">04 — Contact</span>
                     <h2 class="section-title">Let's Work<br>Together</h2>
@@ -222,7 +231,7 @@ export class PortfolioView {
 
     renderLightbox(projects) {
         const imagesHtml = projects.map((project, index) => `
-            <img class="lb-img-item" data-index="${index}" src="${project.image}" alt="${project.title}">
+            <img class="lb-img-item" data-index="${index}" src="${project.image}" alt="${project.title}" loading="lazy">
         `).join('');
 
         return `
@@ -241,7 +250,7 @@ export class PortfolioView {
                     <div class="lightbox-footer">
                         <div class="lightbox-info">
                             <span class="lightbox-num" id="lb-num"></span>
-                            <a href="#" id="lb-demo" class="lb-demo-btn" target="_blank">Open Activity &rarr;</a>
+                            <a href="javascript:void(0)" id="lb-demo" class="lb-demo-btn" target="_blank" rel="noopener noreferrer">Open Activity &rarr;</a>
                         </div>
                         <div class="lightbox-nav">
                             <button id="lb-prev" aria-label="Previous project">&#8592; Prev</button>

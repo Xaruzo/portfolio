@@ -16,6 +16,7 @@ export class PortfolioController {
         this.initSkillBars();
         this.initLightbox();
         this.initActiveNav();
+        this.initCopyEmail();
         this.preloadProjectImages();
     }
 
@@ -74,7 +75,8 @@ export class PortfolioController {
         const sun = toggle.querySelector('.sun-icon');
         const moon = toggle.querySelector('.moon-icon');
         
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        const currentTheme = localStorage.getItem('theme') ||
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme', currentTheme);
         this.updateThemeIcons(currentTheme, sun, moon);
         
@@ -118,6 +120,44 @@ export class PortfolioController {
             });
         });
     }
+
+    initCopyEmail() {
+        const copyBtns = document.querySelectorAll('.copy-email-btn');
+        copyBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const email = btn.getAttribute('data-email');
+                navigator.clipboard.writeText(email).then(() => {
+                    this.showToast('Email copied to clipboard!');
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                });
+            });
+        });
+    }
+
+    showToast(message) {
+        const container = document.getElementById('toast-container');
+        if (!container) return;
+
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = message;
+        
+        container.appendChild(toast);
+        
+        // Trigger reflow for animation
+        toast.offsetHeight;
+        toast.classList.add('visible');
+        
+        setTimeout(() => {
+            toast.classList.remove('visible');
+            setTimeout(() => {
+                toast.remove();
+            }, 300);
+        }, 3000);
+    }
+}
 
     initScrollReveal() {
         const obs = new IntersectionObserver((entries) => {
