@@ -55,18 +55,27 @@
     width: 14px;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 12px 12px;
+    transition: background-size 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
-  /* Up arrow - Using light purple/violet for visibility */
+  /* Up arrow - normal state */
   ::-webkit-scrollbar-button:single-button:vertical:decrement {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23A020F0' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m18 15-6-6-6 6'/%3E%3C/svg%3E");
   }
-  /* Down arrow - Using light purple/violet for visibility */
+  /* Down arrow - normal state */
   ::-webkit-scrollbar-button:single-button:vertical:increment {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23A020F0' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
   }
-  ::-webkit-scrollbar-button:single-button:active {
-    background-color: var(--maroon);
-    filter: brightness(1.2);
+  /* Active: button bg = deep maroon, arrow = bright violet — visually distinct from each other */
+  ::-webkit-scrollbar-button:single-button:vertical:decrement:active {
+    background-color: #3A005F;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23BF40FF' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m18 15-6-6-6 6'/%3E%3C/svg%3E");
+    background-size: 7px 7px;
+  }
+  ::-webkit-scrollbar-button:single-button:vertical:increment:active {
+    background-color: #3A005F;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23BF40FF' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-size: 7px 7px;
   }
   ::-webkit-scrollbar-track {
     background: var(--gray);
