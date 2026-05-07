@@ -91,7 +91,7 @@ export class PortfolioView {
                     <div>
                         <div class="edu-block fade-up delay-2">
                             <h4>${personalInfo.role.split(' & ')[1]}</h4>
-                            <span>${personalInfo.year} &nbsp;|&nbsp; ${personalInfo.school} &nbsp;|&nbsp; ${personalInfo.location.split(', ')[1]}, ${personalInfo.location.split(', ')[0]}</span>
+                            <span>${personalInfo.year} &nbsp;|&nbsp; ${personalInfo.school} &nbsp;|&nbsp; ${personalInfo.location}</span>
                         </div>
                         <div class="about-focus-wrap fade-up delay-3">
                             <p class="about-focus-text">
@@ -212,19 +212,18 @@ export class PortfolioView {
                 </div>
                 <div class="contact-grid">
                     <div>
-                        <p class="contact-desc fade-up delay-1">I'm open to internship opportunities, project collaborations, and conversations with engineers building things that matter. If you're looking for someone who takes code quality seriously — let's connect.</p>
+                        <p class="contact-desc fade-up delay-1">I'm open to internship opportunities, project collaborations, and conversations with people building things on the web. If you're looking for someone who takes code quality and clean structure seriously — let's connect.</p>
                         ${socialLinksHtml}
-                        <!-- Unhide and update href once resume PDF is ready -->
-                        <!-- <a href="resume.pdf" class="dl-btn fade-up delay-4" download>&#8595; Download Resume (PDF)</a> -->
+                        <a href="Resume/Reignston_Manzano_Resume.docx" class="btn fade-up delay-4" download style="margin-top: 28px;">&#8595; Download Resume (DOCX)</a>
                     </div>
                     <div class="contact-note-wrap fade-up delay-5">
                         <div class="contact-note-box">
                             <p class="contact-note-label fade-up">Quick Note</p>
                             <p class="contact-note-body fade-up delay-1">
-                                    Currently deepening my expertise in <strong class="contact-note-strong">JavaFX architecture</strong> and <strong class="contact-note-strong">Python Flet</strong> reactive systems while completing my CS degree. If you're building something that demands clean logic and precise engineering, I'd genuinely love to hear about it.
-                                </p>
+                                Currently building my frontend fundamentals through hands-on <strong class="contact-note-strong">HTML & CSS</strong> work, while deepening my CS foundation through <strong class="contact-note-strong">algorithms, data structures, and system design</strong>. If you're looking for someone detail-oriented and serious about the craft — I'd love to hear from you.
+                            </p>
                             <div class="contact-note-footer fade-up delay-2">
-                                <p class="contact-note-school">${personalInfo.school} — ${personalInfo.location.split(', ')[1]}, PH</p>
+                                <p class="contact-note-school">${personalInfo.school} — ${personalInfo.location}</p>
                             </div>
                         </div>
                     </div>
@@ -263,7 +262,7 @@ export class PortfolioView {
                     <div class="lightbox-footer">
                         <div class="lightbox-info">
                             <span class="lightbox-num" id="lb-num"></span>
-                            <a href="javascript:void(0)" id="lb-demo" class="lb-demo-btn" target="_blank" rel="noopener noreferrer">Open Activity &rarr;</a>
+                            <a href="#" id="lb-demo" class="lb-demo-btn" target="_blank" rel="noopener noreferrer">Open Activity &rarr;</a>
                         </div>
                         <div class="lightbox-nav">
                             <button id="lb-prev" aria-label="Previous project">&#8592; Prev</button>

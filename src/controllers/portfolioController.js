@@ -72,6 +72,8 @@ export class PortfolioController {
 
     initTheme() {
         const toggle = document.getElementById('theme-toggle');
+        if (!toggle) return; // FIX: guard against missing element
+
         const sun = toggle.querySelector('.sun-icon');
         const moon = toggle.querySelector('.moon-icon');
         
@@ -191,15 +193,18 @@ export class PortfolioController {
                 const bars = e.target.querySelectorAll('.skill-bar');
                 if (e.isIntersecting) {
                     bars.forEach(b => {
-                        const w = b.getAttribute('data-width');
-                        setTimeout(() => {
+                        // FIX: clear any pending timer before starting a new one
+                        clearTimeout(b._animTimer);
+                        b._animTimer = setTimeout(() => {
                             b.style.transition = 'width 1.2s cubic-bezier(0.2, 0, 0.2, 1)';
-                            b.style.width = w;
+                            b.style.width = b.getAttribute('data-width');
                         }, 100);
                     });
                 } else {
                     // Reset bars when out of view for return animation
                     bars.forEach(b => {
+                        // FIX: cancel pending animation before resetting
+                        clearTimeout(b._animTimer);
                         b.style.transition = 'none';
                         b.style.width = '0';
                     });
@@ -215,6 +220,16 @@ export class PortfolioController {
         const lbClose = document.getElementById('lb-close');
         const lbPrev = document.getElementById('lb-prev');
         const lbNext = document.getElementById('lb-next');
+        const lbDemo = document.getElementById('lb-demo');
+
+        // FIX: prevent the placeholder href="#" from scrolling to top before openLightbox sets the real URL
+        if (lbDemo) {
+            lbDemo.addEventListener('click', (e) => {
+                if (!lbDemo.href || lbDemo.getAttribute('href') === '#') {
+                    e.preventDefault();
+                }
+            });
+        }
 
         items.forEach((item, i) => {
             const screen = item.querySelector('.gallery-screen');

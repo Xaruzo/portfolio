@@ -5,20 +5,20 @@ export const portfolioData = {
     role: "Software Engineer & BS Computer Science Student",
     location: "Tandag City, Philippines",
     school: "North Eastern Mindanao State University",
-    year: "BS Computer Science",
+    year: "Expected Graduation: 2028",
     email: "rjbmanzano@nemsu.edu.ph",
-    description: "A detail-driven Software Engineer and CS student with a strong foundation in system architecture, desktop development, and reactive UI engineering. I build software that is clean, performant, and built to scale.",
+    description: "A detail-driven CS student with a strong foundation in semantic web markup, responsive CSS layout systems, and frontend design. I build interfaces that are precise, accessible, and structured to last.",
     heroImage: "images/hero.png",
     about: [
-      "I'm a Computer Science student who builds software with purpose. Great software isn't just functional — it's architecturally sound, maintainable, and designed to grow. I hold every line of code I write to that standard.",
-      "My core expertise lies in JavaFX for feature-rich desktop applications and Python Flet for modern, cross-platform reactive interfaces. I specialize in turning complex requirements into modular, well-structured systems that are easy to reason about and build on.",
-      "Whether I'm managing memory in C++, designing relational database schemas, or structuring a full MVC application from scratch, my focus is consistent: solve real problems elegantly, and leave the codebase better than I found it."
+      "I'm a Computer Science student who builds web interfaces with purpose. Good front-end work isn't just about making things look right — it's about semantic structure, layout precision, and markup that's easy to reason about and maintain. I hold every line I write to that standard.",
+      "My current focus is mastering the web's core fundamentals: semantic HTML, responsive CSS layout systems using Flexbox and Grid, and crafting interfaces that are both visually precise and structurally sound. I treat clean, well-considered markup as a discipline in itself, not an afterthought.",
+      "Whether I'm architecting a relational table structure, engineering a multi-level grid layout from scratch, or thinking through information hierarchy — my approach is always the same: understand the problem deeply, then solve it cleanly and without excess."
     ],
     focusAreas: [
-      "Desktop Application Design",
-      "Reactive UI Engineering",
-      "Algorithm & Data Structure Analysis",
-      "System Architecture"
+      "Semantic HTML & Markup",
+      "Responsive CSS Layout",
+      "Information Architecture",
+      "Frontend Design Systems"
     ]
   },
   socialLinks: [
@@ -28,47 +28,47 @@ export const portfolioData = {
     { name: "Email", url: "mailto:rjbmanzano@nemsu.edu.ph", icon: "mail" }
   ],
   skills: [
-    { 
-      name: "JavaFX", 
-      icon: "coffee", 
-      description: "Building production-quality desktop applications with secure authentication flows, persistent data layers, and modular FXML scene architecture — focused on performance and long-term maintainability.", 
-      level: 88,
-      tags: ["FXML", "SceneBuilder", "Event Handling", "UI Threading"]
-    },
-    { 
-      name: "Python Flet", 
-      icon: "monitor", 
-      description: "Engineering cross-platform reactive UIs that prioritize speed, clean state management, and intuitive user flows — targeting consistent behavior across desktop and web.", 
-      level: 82,
-      tags: ["Reactive UI", "State Management", "Async/Await", "Custom Styling"]
-    },
-    { 
-      name: "C++ Fundamentals", 
-      icon: "cpu", 
-      description: "Applying low-level fundamentals — pointer arithmetic, memory management, and object-oriented design — to build efficient, high-performance solutions and understand systems at their core.", 
-      level: 74,
-      tags: ["Pointers", "OOP", "STL", "Memory Management"]
-    },
-    { 
-      name: "HTML & CSS", 
-      icon: "layout", 
-      description: "Crafting semantic, accessible, and fully responsive interfaces from the ground up, with strong attention to layout precision, visual hierarchy, and cross-browser consistency.", 
+    {
+      name: "HTML & CSS",
+      icon: "layout",
+      description: "Crafting semantic, accessible, and fully responsive interfaces from the ground up — with strong attention to layout precision, visual hierarchy, and cross-browser consistency. The foundation everything else is built on.",
       level: 90,
       tags: ["Flexbox", "Grid", "Responsive", "Semantic HTML"]
     },
-    { 
-      name: "SQLite / Databases", 
-      icon: "database", 
-      description: "Designing normalized relational schemas and building persistent storage layers tightly integrated with application logic — structured for reliability and query efficiency.", 
+    {
+      name: "Logic & Architecture",
+      icon: "component",
+      description: "Translating complex real-world requirements into clean, modular, and maintainable structures. This is the discipline that ties every other skill together — and the one I take most seriously regardless of the language or platform.",
+      level: 78,
+      tags: ["System Design", "Algorithms", "Modular Code", "Logic Flow"]
+    },
+    {
+      name: "JavaFX",
+      icon: "coffee",
+      description: "Building desktop applications with secure authentication flows, persistent data layers, and modular FXML scene architecture — focused on performance and long-term maintainability.",
+      level: 88,
+      tags: ["FXML", "SceneBuilder", "Event Handling", "UI Threading"]
+    },
+    {
+      name: "Python Flet",
+      icon: "monitor",
+      description: "Engineering cross-platform reactive UIs that prioritize speed, clean state management, and intuitive user flows — targeting consistent behavior across desktop and web.",
+      level: 82,
+      tags: ["Reactive UI", "State Management", "Async/Await", "Custom Styling"]
+    },
+    {
+      name: "C++ Fundamentals",
+      icon: "cpu",
+      description: "Applying low-level fundamentals — pointer arithmetic, memory management, and object-oriented design — to build efficient solutions and understand systems at their core.",
+      level: 74,
+      tags: ["Pointers", "OOP", "STL", "Memory Management"]
+    },
+    {
+      name: "SQLite / Databases",
+      icon: "database",
+      description: "Designing normalized relational schemas and building persistent storage layers tightly integrated with application logic — structured for reliability and query efficiency.",
       level: 78,
       tags: ["SQL Queries", "Relational Mapping", "CRUD", "DB Schema"]
-    },
-    { 
-      name: "Logic & Architecture", 
-      icon: "component", 
-      description: "Translating complex real-world requirements into clean, testable, and modular system designs. This is the discipline that ties every other skill together — and the one I take most seriously.", 
-      level: 93,
-      tags: ["System Design", "Algorithms", "Modular Code", "Logic Flow"]
     }
   ],
   projects: [
