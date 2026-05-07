@@ -14,7 +14,7 @@
     --border: rgba(77,0,127,0.1);
     --contact-bg: #1A1614;
     --contact-text: #ffffff;
-    --contact-muted: rgba(255,255,255,0.6);
+    --contact-muted: rgba(255,255,255,0.78);
   }
 
   [data-theme="dark"] {
@@ -315,8 +315,9 @@
   section { padding: 100px max(5%, calc(50% - 600px)); }
   .section-header { margin-bottom:64px; }
   .section-num {
-    font-size:0.72rem; letter-spacing:4px; text-transform:uppercase;
+    font-size:0.75rem; letter-spacing:4px; text-transform:uppercase;
     color:var(--maroon); margin-bottom:8px; display:block;
+    font-weight: 700;
   }
   .section-title {
     font-family:'Syne',sans-serif; font-size:clamp(2rem,4vw,3rem);
@@ -337,7 +338,7 @@
     transition: background 0.3s ease;
   }
   .edu-block h4 { font-family:'Syne',sans-serif; font-size:1rem; font-weight:700; margin-bottom:6px; color: var(--text-main); }
-  .edu-block span { font-size:0.8rem; color:var(--mid); }
+  .edu-block span { font-size:0.8rem; color:var(--text-muted); }
 
   /* ——— SKILLS ——— */
   #skills { background:var(--bg); transition: background 0.3s ease; }
@@ -367,7 +368,7 @@
     height: 20px;
   }
   .skill-card h4 { font-family:'Syne',sans-serif; font-weight:700; margin-bottom:8px; color: var(--text-main); }
-  .skill-card p { font-size:0.82rem; color:var(--mid); line-height:1.7; flex:1; }
+  .skill-card p { font-size:0.84rem; color:var(--text-muted); line-height:1.8; flex:1; }
   .skill-tags {
     display: flex;
     flex-wrap: wrap;
@@ -375,8 +376,9 @@
     margin: 16px 0;
   }
   .skill-tag {
-    font-size: 0.65rem;
-    padding: 4px 10px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 5px 11px;
     background: var(--bg);
     color: var(--maroon);
     border: 1px solid var(--border);
@@ -587,7 +589,7 @@
   footer {
     background:#0D0A09; text-align:center;
     padding:32px 5%; font-size:0.75rem;
-    color: rgba(255,255,255,0.4); letter-spacing: 1px;
+    color: rgba(255,255,255,0.55); letter-spacing: 1px;
   }
 
   /* ——— NO TEXT SELECTION ON UI ELEMENTS ——— */
@@ -880,8 +882,8 @@
     border-bottom: 1px solid var(--gray);
   }
   .about-focus-text {
-    font-size: 0.8rem;
-    color: var(--mid);
+    font-size: 0.82rem;
+    color: var(--text-muted);
     line-height: 1.9;
   }
 
@@ -1080,7 +1082,7 @@
   .contact-note-body {
     font-size: 0.85rem;
     line-height: 2;
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.82);
   }
   .contact-note-strong {
     color: rgba(255,255,255,0.8);
@@ -1092,6 +1094,6 @@
   }
   .contact-note-school {
     font-size: 0.75rem;
-    color: rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.5);
     letter-spacing: 1px;
   }
