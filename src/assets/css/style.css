@@ -64,8 +64,9 @@
   ::-webkit-scrollbar-button:single-button:vertical:increment {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23A020F0' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
   }
-  ::-webkit-scrollbar-button:single-button:hover {
-    background-color: var(--border);
+  ::-webkit-scrollbar-button:single-button:active {
+    background-color: var(--maroon);
+    filter: brightness(1.2);
   }
   ::-webkit-scrollbar-track {
     background: var(--gray);
@@ -223,6 +224,10 @@
     background: var(--maroon-light); transform: translateY(-2px);
     box-shadow: 0 8px 28px rgba(77,0,127,0.4);
   }
+  .btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(77,0,127,0.2);
+  }
   .hero-socials { display: flex; align-items: center; gap: 14px; }
   .hero-social-link {
     display: flex; align-items: center; justify-content: center;
@@ -234,6 +239,10 @@
   }
   .hero-social-link:hover {
     border-color: var(--maroon); color: var(--maroon); transform: translateY(-2px);
+  }
+  .hero-social-link:active {
+    transform: translateY(1px);
+    background: var(--gray);
   }
   /* Hero visual */
   .hero-visual {
@@ -1060,6 +1069,10 @@
   }
   .lightbox-nav button:hover {
     background: var(--maroon); color: #fff; border-color: var(--maroon);
+  }
+  .lightbox-nav button:active {
+    transform: translateY(1px);
+    filter: brightness(0.9);
   }
   .lightbox-nav button:disabled {
     opacity: 0.3; pointer-events: none;
