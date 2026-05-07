@@ -36,12 +36,24 @@ export class PortfolioView {
 
     renderHero(personalInfo, socialLinks) {
         const socialLinksHtml = socialLinks
-            .filter(link => link.name !== 'Email')
-            .map(link => `
-            <a href="${link.url}" class="hero-social-link fade-up" target="_blank" rel="noopener noreferrer" aria-label="${link.name}">
-                ${this.getSocialIcon(link.icon)}
-            </a>
-        `).join('');
+            .map(link => {
+            const isEmail = link.name === 'Email';
+            const displayUrl = isEmail ? link.url.replace('mailto:', '') : (link.name === 'Phone' ? link.url.replace('tel:', '') : link.url.replace('https://', ''));
+            
+            if (isEmail) {
+                return `
+                    <button class="hero-social-link hero-email-copy fade-up" data-email="${displayUrl}" aria-label="Copy email address">
+                        ${this.getSocialIcon(link.icon)}
+                    </button>
+                `;
+            }
+            
+            return `
+                <a href="${link.url}" class="hero-social-link fade-up" target="_blank" rel="noopener noreferrer" aria-label="${link.name}">
+                    ${this.getSocialIcon(link.icon)}
+                </a>
+            `;
+        }).join('');
 
         return `
             <section id="home">
@@ -178,7 +190,7 @@ export class PortfolioView {
     renderContact(personalInfo, socialLinks) {
         const socialLinksHtml = socialLinks.map((link, index) => {
             const isEmail = link.name === 'Email';
-            const displayUrl = isEmail ? link.url.replace('mailto:', '') : (link.name === 'Phone' ? link.url.replace('tel:', '') : link.url.replace('https://', ''));
+            const displayUrl = isEmail ? link.url.replace('mailto:', '') : link.url.replace('https://', '');
             
             if (isEmail) {
                 return `

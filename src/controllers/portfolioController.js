@@ -33,7 +33,7 @@ export class PortfolioController {
         const navLinks = document.querySelectorAll('.nav-link');
 
         const closeMenu = () => {
-            if (!hamburger) return;
+            if (!hamburger || !navLinksContainer) return;
             hamburger.classList.remove('active');
             navLinksContainer.classList.remove('active');
             document.body.classList.remove('no-scroll');
@@ -116,7 +116,7 @@ export class PortfolioController {
 
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
+                if (current && link.getAttribute('href').includes(current)) {
                     link.classList.add('active');
                 }
             });
@@ -128,12 +128,24 @@ export class PortfolioController {
         emailWrappers.forEach(wrapper => {
             wrapper.addEventListener('click', () => {
                 const email = wrapper.getAttribute('data-email');
-                navigator.clipboard.writeText(email).then(() => {
-                    this.showToast('Email address copied!');
-                }).catch(err => {
-                    console.error('Failed to copy: ', err);
-                });
+                this.copyToClipboard(email);
             });
+        });
+
+        const heroEmailBtn = document.querySelectorAll('.hero-email-copy');
+        heroEmailBtn.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const email = btn.getAttribute('data-email');
+                this.copyToClipboard(email);
+            });
+        });
+    }
+
+    copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            this.showToast('Email address copied!');
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
         });
     }
 

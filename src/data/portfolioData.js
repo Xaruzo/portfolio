@@ -24,7 +24,6 @@ export const portfolioData = {
   socialLinks: [
     { name: "GitHub", url: "https://github.com/Xaruzo", icon: "github" },
     { name: "LinkedIn", url: "https://www.linkedin.com/in/reignston-manzano-9b205226a/", icon: "linkedin" },
-    { name: "X", url: "https://x.com/Xaruzo", icon: "x" },
     { name: "Email", url: "mailto:rjbmanzano@nemsu.edu.ph", icon: "mail" }
   ],
   skills: [
