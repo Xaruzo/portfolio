@@ -72,51 +72,51 @@ export const portfolioData = {
   ],
   projects: [
     {
-      title: "Semantic Markup & Typography Systems",
+      title: "Student Poem Page",
       url: "Activities/Activity_1.html",
-      tags: ["HTML", "Typography"],
+      tags: ["HTML", "Inline Styles"],
       num: "Project 01",
       image: "images/1.png"
     },
     {
-      title: "Interactive Interface Design",
+      title: "Colorful Hobby Info Page",
       url: "Activities/Activity_2.html",
-      tags: ["HTML", "CSS Styling"],
+      tags: ["HTML", "Inline CSS"],
       num: "Project 02",
       image: "images/2.png"
     },
     {
-      title: "Data Visualization with Relational Tables",
+      title: "Student Grade Report",
       url: "Activities/Activity_3.html",
       tags: ["HTML Tables", "CSS"],
       num: "Project 03",
       image: "images/3.png"
     },
     {
-      title: "Complex Tabular Data Structures",
+      title: "Weekly Class Schedule",
       url: "Activities/Activity_4.html",
-      tags: ["HTML", "Colspan"],
+      tags: ["HTML Tables", "Colspan"],
       num: "Project 04",
       image: "images/4.png"
     },
     {
-      title: "Hierarchical Grid Layout Engineering",
+      title: "Nested Tables Layout",
       url: "Activities/Activity_5.html",
       tags: ["Nested Tables", "HTML"],
       num: "Project 05",
       image: "images/5.png"
     },
     {
-      title: "Advanced Structural Layout Design",
+      title: "Colspan & Rowspan Table Layout",
       url: "Activities/Activity_6.html",
-      tags: ["HTML Layout", "Rowspan"],
+      tags: ["Colspan", "Rowspan"],
       num: "Project 06",
       image: "images/6.png"
     },
     {
-      title: "Information Hierarchy & List Architecture",
+      title: "HTML List Types Page",
       url: "Activities/Activity_7.html",
-      tags: ["HTML Lists", "Typography"],
+      tags: ["HTML Lists", "Ordered & Unordered"],
       num: "Project 07",
       image: "images/7.png"
     }

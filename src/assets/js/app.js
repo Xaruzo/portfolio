@@ -1,6 +1,6 @@
-import { portfolioData } from '../../data/portfolioData.js';
-import { PortfolioView } from '../../views/portfolioView.js';
-import { PortfolioController } from '../../controllers/portfolioController.js';
+import { portfolioData } from './portfolioData.js';
+import { PortfolioView } from './portfolioView.js';
+import { PortfolioController } from './portfolioController.js';
 
 const init = () => {
     try {

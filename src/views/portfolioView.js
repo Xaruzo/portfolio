@@ -248,7 +248,7 @@ export class PortfolioView {
         const year = new Date().getFullYear();
         return `
             <footer>
-                <p>&copy; ${year} ${personalInfo.name} &mdash; ${personalInfo.nickname} &nbsp;|&nbsp; ${personalInfo.role.split(' & ')[1]} &middot; System Architect &nbsp;|&nbsp; ${personalInfo.school}</p>
+                <p>&copy; ${year} ${personalInfo.name} &mdash; ${personalInfo.nickname} &nbsp;|&nbsp; ${personalInfo.role} &nbsp;|&nbsp; ${personalInfo.school}</p>
             </footer>
         `;
     }
