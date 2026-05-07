@@ -35,7 +35,9 @@ export class PortfolioView {
     }
 
     renderHero(personalInfo, socialLinks) {
-        const socialLinksHtml = socialLinks.map(link => `
+        const socialLinksHtml = socialLinks
+            .filter(link => link.name !== 'Email')
+            .map(link => `
             <a href="${link.url}" class="hero-social-link fade-up" target="_blank" rel="noopener noreferrer" aria-label="${link.name}">
                 ${this.getSocialIcon(link.icon)}
             </a>
