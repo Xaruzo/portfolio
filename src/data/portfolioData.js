@@ -83,7 +83,7 @@ export const portfolioData = {
       url: "Activities/Activity_2.html",
       tags: ["HTML", "Inline CSS"],
       num: "Project 02",
-      image: "images/2.png"
+      image: "images/2.png?v=2"
     },
     {
       title: "Student Grade Report",
