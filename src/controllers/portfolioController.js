@@ -180,19 +180,11 @@ export class PortfolioController {
                     e.target.addEventListener('transitionend', () => {
                         e.target.style.willChange = 'auto';
                     }, { once: true });
-                } else {
-                    // Return animation: reset when completely out of view
-                    const rect = e.target.getBoundingClientRect();
-                    const isAbove = rect.bottom < 0;
-                    const isBelow = rect.top > window.innerHeight;
-                    
-                    if (isAbove || isBelow) {
-                        e.target.classList.remove('visible');
-                    }
+                    obs.unobserve(e.target); // play once, done
                 }
             });
         }, { 
-            threshold: 0.05 // Trigger as soon as 5% is visible
+            threshold: 0.12
         });
 
         const animatedElements = document.querySelectorAll('.fade-up, .fade-in, .slide-left, .slide-right');
